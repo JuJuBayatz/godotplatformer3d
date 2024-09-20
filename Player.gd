@@ -7,6 +7,7 @@ var facing_angle: float
 var score:int = 0
 
 @onready var model: MeshInstance3D = get_node("Model")
+@onready var score_text: Label = get_node("ScoreText")
 
 func _physics_process(delta: float) -> void:
 	
@@ -39,5 +40,6 @@ func game_over():
 
 func add_score(amount):
 	score += amount
-	print(score)
+	score_text.text = str("Score: ", score)
+	print(score_text.text)
 	

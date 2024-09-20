@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://ocu57v15e87j"]
+
+[ext_resource type="PackedScene" uid="uid://85vk7er1eykq" path="res://Coin.tscn" id="1_sxg7u"]
+[ext_resource type="PackedScene" uid="uid://ccj1lb03u7l4v" path="res://EndFlag.tscn" id="2_tfijp"]
+[ext_resource type="PackedScene" uid="uid://c60o8j0fct4tk" path="res://Enemy.tscn" id="3_1kcrt"]
+[ext_resource type="PackedScene" uid="uid://c01sil742n30q" path="res://Player.tscn" id="4_6fnxw"]
+[ext_resource type="PackedScene" uid="uid://b6pvyn0ai13q6" path="res://Spikes.tscn" id="5_s8ujr"]
+[ext_resource type="PackedScene" uid="uid://cchw13yy4tlp5" path="res://Platforms/PlatformLarge.tscn" id="6_4613g"]
+
+[sub_resource type="Environment" id="Environment_avxt1"]
+background_mode = 1
+background_color = Color(0.720355, 0.602628, 0.912731, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Coin" parent="." instance=ExtResource("1_sxg7u")]
+
+[node name="EndFlag" parent="." instance=ExtResource("2_tfijp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110963, -3.91869)
+next_scene = "res://Level1.tscn"
+
+[node name="Enemy" parent="." instance=ExtResource("3_1kcrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.190953, -0.557572, -1.96235)
+move_direction = Vector3(0, 3, 2)
+
+[node name="Spikes" parent="." instance=ExtResource("5_s8ujr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="PlatformLarge" parent="." instance=ExtResource("6_4613g")]
+
+[node name="PlatformLarge3" parent="." instance=ExtResource("6_4613g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196, -1, 2.069)
+
+[node name="PlatformLarge2" parent="." instance=ExtResource("6_4613g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.472909, -0.889751, -3.63057)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.59808, 1.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_avxt1")
+
+[node name="Player" parent="." instance=ExtResource("4_6fnxw")]
